@@ -6,8 +6,9 @@ class LengthDistribution:
     self.dist = {}
 
   # Update the number of times length (int) has been seen
-  def UpdateProbability(self, length):
-    self.dist[length] = self.dist[length] + 1 if length in self.dist else 1
+  def UpdateProbability(self, length, num_times=1):
+    self.dist[length] = self.dist[length] + num_times if length in self.dist \
+                                                      else num_times
 
   # Sample the distribution
   # Returns None if the distribution is empty
@@ -27,3 +28,8 @@ class LengthDistribution:
 
   def _GetDistribution(self):
     return self.dist
+
+def Sample(elt):
+  if elt not in partition.LEGAL_ELEMENTS:
+    raise partition.UnknownStructuralElement(elt)
+  return round(DISTRIBUTIONS[elt].Sample())
