@@ -130,4 +130,4 @@ probability distribution and returns a length for that element.
 def Sample(elt):
   if elt not in LEGAL_ELEMENTS:
     raise UnknownStructuralElement(elt)
-  return min(1, int(round(_DISTROS[elt].Sample())))
+  return max(1, int(round(_DISTROS[elt].Sample())))

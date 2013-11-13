@@ -24,11 +24,6 @@ def Fold(seq):
     seq = seq[:start[0]] + \
           seq[start[1] : end[0]] + \
           seq[end[1] :]
-    try:
-      assert (len(old_seq) != len(seq))
-    except AssertionError:
-      print best_part
-      raise Exception()
   return folding
 
 """
