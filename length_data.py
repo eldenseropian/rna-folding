@@ -1,8 +1,14 @@
-BULGE = object()
-HAIRPIN = object()
-INTERNAL_LOOP = object()
-MULTI_LOOP = object()
-STEM = object()
+# Functions as an enum
+class BULGE:
+  pass
+class HAIRPIN:
+  pass
+class INTERNAL_LOOP:
+  pass
+class MULTI_LOOP:
+  pass
+class STEM:
+  pass
 LEGAL_ELEMENTS = [BULGE, HAIRPIN, INTERNAL_LOOP, MULTI_LOOP, STEM]
 
 class UnknownStructuralElement(Exception):
@@ -124,4 +130,4 @@ probability distribution and returns a length for that element.
 def Sample(elt):
   if elt not in LEGAL_ELEMENTS:
     raise UnknownStructuralElement(elt)
-  return int(round(_DISTROS[elt].Sample()))
+  return min(1, int(round(_DISTROS[elt].Sample())))
