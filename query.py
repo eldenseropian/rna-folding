@@ -1,3 +1,5 @@
+__author__ = "Lily Seropian"
+
 '''
 BAND: part of pseudoknot stuff
 BULGE_AND_INTERNAL_LOOP: element

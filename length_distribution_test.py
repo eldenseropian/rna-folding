@@ -1,3 +1,5 @@
+__author__ = "Lily Seropian"
+
 import length_distribution
 
 def TestUpdateProbability():

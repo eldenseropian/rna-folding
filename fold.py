@@ -1,5 +1,15 @@
+__author__ = "Lily Seropian"
+
 import length_data
 import classifier
+
+"""
+Returns a probabilistically selected length for a given structural element.
+"""
+def _GetLength(elt):
+  if elt not in length_data.LEGAL_ELEMENTS:
+    raise UnknownStructuralElement(elt)
+  return length_data.Sample(elt)
 
 """
 Takes in an RNA sequence and computes its best folding.
@@ -11,7 +21,7 @@ def Fold(seq):
     best_elt = None
     best_part = None
     for elt in length_data.LEGAL_ELEMENTS:
-      parts = Partition(seq, elt)
+      parts = _Partition(seq, elt)
       for part in parts:
         score = classifier.score(part[1], elt)
         if score > best_score:
@@ -38,21 +48,38 @@ end indices of both halves of the partition (e.g. [(0, 4), (8, 12)]). The second
 element is the first half of the partition taken from the beginning of the
 sequence, concatenated with a possible end half.
 """
-def Partition(seq, elt):
-  length = _GetLength(elt)
-  if length >= len(seq):
+def _Partition(seq, elt, GetLength=_GetLength):
+  l = GetLength(elt)
+  
+  if l <= 0 or type(l) != int:
+    raise IllegalLengthException
+  elif l == 1:
+    return [[[(0, 1), (1, 1)], seq[0]]]
+  elif l >= len(seq):
     return [[[(0, len(seq)), (len(seq), len(seq))], seq]]
-  partitions = [[[(0, length/2 + 1)], seq[:length/2 + 1]]
-                for _ in range(len(seq) - length)]
-  for i in range(len(seq) - length):
-    partitions[i][0].append((i + length/2 + 1, i + length))
-    partitions[i][1] += seq[i + length/2 + 1 : i + length]
-  return partitions
+  else:
+    num_even_parts = len(seq) - l + 1
+    num_odd_parts = 0
+    if l % 2 == 1:
+      # If there are an odd number of bps in the partition, the odd one
+      # can go in the first or second half, doubling the number of partitions.
+      # There is one overlap partition between the two placements.
+      num_odd_parts = num_even_parts - 1
+    partitions = [[[(0, l/2)], seq[:l/2]] for _ in range(num_even_parts)] + \
+                 [[[(0, l/2+1)], seq[:l/2+1]] for _ in range(num_odd_parts)]
 
-def _GetLength(elt):
-  if elt not in length_data.LEGAL_ELEMENTS:
-    raise UnknownStructuralElement(elt)
-  return length_data.Sample(elt)
+    # The odd base goes in the second half of the partition
+    for i in range(num_even_parts):
+      partitions[i][0].append((i + l/2, i + l))
+      partitions[i][1] += seq[i + l/2 : i + l]
+
+    if l% 2 == 1:
+      # Add the odd base going in the first half
+      for i in range(1, num_even_parts):
+        partitions[i + num_even_parts - 1][0].append((i + l/2 + 1, i + l))
+        partitions[i + num_even_parts - 1][1] += seq[i + l/2 + 1: i + l]
+    return partitions
+
 
 class UnknownStructuralElement(Exception):
   def __init__(self, elt):
@@ -63,6 +90,10 @@ class UnknownStructuralElement(Exception):
         ' partition.BULGE, partition.HAIRPIN, partition.INTERNAL_LOOP,' + \
         ' partition.MULTI_LOOP, and partition.STEM'
 
+class IllegalLengthException(Exception):
+  pass
+'''
 x = Fold('AGTCGGCTTGA')
 for a in x:
   print a[0], a[1]
+'''

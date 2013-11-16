@@ -1,3 +1,5 @@
+__author__ = "Lily Seropian"
+
 import random
 
 class LengthDistribution:

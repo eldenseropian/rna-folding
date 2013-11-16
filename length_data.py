@@ -1,3 +1,5 @@
+__author__ = "Lily Seropian"
+
 # Functions as an enum
 class BULGE:
   pass
