@@ -12,31 +12,6 @@ def _GetLength(elt):
   return length_data.Sample(elt)
 
 """
-Takes in an RNA sequence and computes its best folding.
-"""
-def Fold(seq):
-  folding = []
-  while len(seq) > 0:
-    best_score = 0
-    best_elt = None
-    best_part = None
-    for elt in length_data.LEGAL_ELEMENTS:
-      parts = _Partition(seq, elt)
-      for part in parts:
-        score = classifier.score(part[1], elt)
-        if score > best_score:
-          best_score = score
-          best_elt = elt
-          best_part = part
-    folding.append((best_part[1], best_elt))
-    start, end = best_part[0][0], best_part[0][1]
-    old_seq = seq[:]
-    seq = seq[:start[0]] + \
-          seq[start[1] : end[0]] + \
-          seq[end[1] :]
-  return folding
-
-"""
 Takes in an RNA sequence and a structural element, and returns a list of
 partitions of the sequence. The structural element is one of the constants
 defined at the top of this file. The RNA sequence is a list of bases.
@@ -80,6 +55,30 @@ def _Partition(seq, elt, GetLength=_GetLength):
         partitions[i + num_even_parts - 1][1] += seq[i + l/2 + 1: i + l]
     return partitions
 
+"""
+Takes in an RNA sequence and computes its best folding.
+"""
+def Fold(seq, Partition=_Partition):
+  folding = []
+  while len(seq) > 0:
+    best_score = 0
+    best_elt = None
+    best_part = None
+    for elt in length_data.LEGAL_ELEMENTS:
+      parts = _Partition(seq, elt)
+      for part in parts:
+        score = classifier.score(part[1], elt)
+        if score > best_score:
+          best_score = score
+          best_elt = elt
+          best_part = part
+    folding.append((best_part[1], best_elt))
+    start, end = best_part[0][0], best_part[0][1]
+    old_seq = seq[:]
+    seq = seq[:start[0]] + \
+          seq[start[1] : end[0]] + \
+          seq[end[1] :]
+  return folding
 
 class UnknownStructuralElement(Exception):
   def __init__(self, elt):
@@ -92,8 +91,8 @@ class UnknownStructuralElement(Exception):
 
 class IllegalLengthException(Exception):
   pass
-'''
-x = Fold('AGTCGGCTTGA')
-for a in x:
-  print a[0], a[1]
-'''
+
+if __name__ == '__main__':
+  x = Fold('AGTCGGCTTGA')
+  for a in x:
+    print a[0], a[1]
