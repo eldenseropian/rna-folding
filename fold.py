@@ -8,7 +8,7 @@ Returns a probabilistically selected length for a given structural element.
 """
 def _GetLength(elt):
   if elt not in length_data.LEGAL_ELEMENTS:
-    raise UnknownStructuralElement(elt)
+    raise length_data.UnknownStructuralElement(elt)
   return length_data.Sample(elt)
 
 """
@@ -79,15 +79,6 @@ def Fold(seq, Partition=_Partition):
           seq[start[1] : end[0]] + \
           seq[end[1] :]
   return folding
-
-class UnknownStructuralElement(Exception):
-  def __init__(self, elt):
-    self.elt = elt
-
-  def __str__(self):
-    return str(self.elt) + ' is an unknown type. Valid elements are' + \
-        ' partition.BULGE, partition.HAIRPIN, partition.INTERNAL_LOOP,' + \
-        ' partition.MULTI_LOOP, and partition.STEM'
 
 class IllegalLengthException(Exception):
   pass
