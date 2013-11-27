@@ -4,6 +4,7 @@ import unittest
 
 import fold
 import length_data
+from nussinov import *
 
 class PartitionTests(unittest.TestCase):
   def setUp(self):
@@ -14,49 +15,52 @@ class PartitionTests(unittest.TestCase):
 
   def testEqual(self):
     # length = len(seq)
-    parts = fold._Partition('AGTCA', self.test_elt, lambda elt: 5)
-    self.assertEqual(parts, [[[(0, 5), (5, 5)], 'AGTCA']])
+    parts = fold._Partition(MakeSeq('AGTCA'), 5)
+    self.assertEqual(parts, [[('A', 0), ('G', 1), ('T', 2), ('C', 3),
+        ('A', 4)]])
 
   def testBigger(self):
     # length > len(seq)
-    parts = fold._Partition('AGTCA', self.test_elt, lambda elt: 6)
-    self.assertEqual(parts, [[[(0, 5), (5, 5)], 'AGTCA']])
+    parts = fold._Partition(MakeSeq('AGTCA'), 6)
+    self.assertEqual(parts, [[('A', 0), ('G', 1), ('T', 2), ('C', 3),
+      ('A', 4)]])
 
   def testSmallerEven(self):
     # length < len(seq), length is even
-    parts = fold._Partition('AGTCA', self.test_elt, lambda elt: 2)
-    self.assertEqual(parts, [[[(0, 1), (1, 2)], 'AG'],
-                             [[(0, 1), (2, 3)], 'AT'],
-                             [[(0, 1), (3, 4)], 'AC'],
-                             [[(0, 1), (4, 5)], 'AA']])
+    parts = fold._Partition(MakeSeq('AGTCA'), 2)
+    self.assertEqual(parts, [[('A', 0), ('G', 1)],
+                             [('A', 0), ('T', 2)],
+                             [('A', 0), ('C', 3)],
+                             [('A', 0), ('A', 4)]])
 
   def testSmallerOdd(self):
     # length < len(seq). length is odd
-    parts = fold._Partition('AGTCA', self.test_elt, lambda elt: 3)
-    self.assertEqual(parts, [[[(0, 1), (1, 3)], 'AGT'],
-                             [[(0, 1), (2, 4)], 'ATC'],
-                             [[(0, 1), (3, 5)], 'ACA'],
-                             [[(0, 2), (3, 4)], 'AGC'],
-                             [[(0, 2), (4, 5)], 'AGA']])
+    parts = fold._Partition(MakeSeq('AGTCA'), 3)
+    self.assertEqual(parts, [[('A', 0), ('G', 1), ('T', 2)],
+                             [('A', 0), ('T', 2), ('C', 3)],
+                             [('A', 0), ('C', 3), ('A', 4)],
+                             [('A', 0), ('G', 1), ('C', 3)],
+                             [('A', 0), ('G', 1), ('A', 4)]])
+
   def testOne(self):
     # length = 1
-    parts = fold._Partition('AGTCA', self.test_elt, lambda elt: 1)
-    self.assertEqual(parts, [[[(0, 1), (1, 1)], 'A']])
+    parts = fold._Partition(MakeSeq('AGTCA'), 1)
+    self.assertEqual(parts, [[('A', 0)]])
 
   def testZero(self):
     # length = 0
-    self.assertRaises(fold.IllegalLengthException, fold._Partition, 'AGTCA',
-        self.test_elt, lambda elt: 0)
+    self.assertRaises(ValueError, fold._Partition, 
+        MakeSeq('AGTCA'), 0)
 
   def testNegative(self):
     # length is negative
-    self.assertRaises(fold.IllegalLengthException, fold._Partition, 'AGTCA',
-        self.test_elt, lambda elt: -5)
+    self.assertRaises(ValueError, fold._Partition,
+        MakeSeq('AGTCA'), -5)
 
   def testRealNumber(self):
     # length is a real number
-    self.assertRaises(fold.IllegalLengthException, fold._Partition, 'AGTCA',
-        self.test_elt, lambda elt: 1.1)
+    self.assertRaises(ValueError, fold._Partition,
+        MakeSeq('AGTCA'), 1.1)
 
 if __name__ == '__main__':
   unittest.main(verbosity=2)

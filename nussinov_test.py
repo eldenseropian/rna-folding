@@ -53,7 +53,7 @@ class NussinovTests(unittest.TestCase):
   def Test(self, seq, expected_score, expected_pairs, debug=False):
     if debug:
       print
-    (actual_score, actual_pairs) = FoldAndScore(seq, debug=debug)
+    (actual_score, actual_pairs) = FoldAndScore(MakeSeq(seq), debug=debug)
     self.assertEqual(expected_score, actual_score)
     try:
       if debug:

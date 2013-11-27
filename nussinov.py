@@ -62,7 +62,7 @@ def FoldAndScore(RNA, debug=False):
   if debug:
     _PrintScores(score_matrix)
     _PrintPaths(paths)
-  return score_matrix[0][N-1], _Traceback(MakeSeq(RNA), paths)
+  return score_matrix[0][N-1], _Traceback(RNA, paths)
 
 """
 Takes in a matrix of constants detailing what decisions the algorithm made,
