@@ -3,15 +3,9 @@ __author__ = "Lily Seropian"
 import unittest
 
 import fold
-import length_data
 from nussinov import *
 
 class PartitionTests(unittest.TestCase):
-  def setUp(self):
-    self.test_elt = length_data.LEGAL_ELEMENTS[0]
-
-  # Tests use lambda mocks of the _GetLength method, which is used to
-  # probabilistically determine a sequence length
 
   def testEqual(self):
     # length = len(seq)
