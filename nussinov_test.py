@@ -47,9 +47,8 @@ class NussinovTests(unittest.TestCase):
          (('A', 6), ('U', 12)), (('A', 7), ('U', 11))])
 
   def Test(self, seq, expected_score, expected_pairs, debug=False):
-    (actual_score, paths) = FoldAndScore(seq, debug=debug)
+    (actual_score, actual_pairs) = FoldAndScore(seq, debug=debug)
     self.assertEqual(expected_score, actual_score)
-    actual_pairs = Traceback(MakeSeq(seq), paths)
     try:
       self.assertEqual(self.Settify(expected_pairs),
           self.Settify(actual_pairs))

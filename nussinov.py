@@ -8,7 +8,7 @@ PTR_NONE, PTR_LEFT, PTR_BELOW, PTR_USE = 0, 1, 2, 3
 def FoldAndScore(RNA, debug=False):
   N = len(RNA)
   score_matrix = [[0 for _ in range(N)] for _ in range(N)]
-  pairs = [[PTR_NONE for _ in range(N)] for _ in range(N)]
+  paths = [[PTR_NONE for _ in range(N)] for _ in range(N)]
 
   for i in range(N-1):
     for j in range(N-i-1):
@@ -20,21 +20,20 @@ def FoldAndScore(RNA, debug=False):
         use += 1
       if use > below and use > left:
         score_matrix[row][col] = use
-        pairs[row][col] = PTR_USE
+        paths[row][col] = PTR_USE
       elif left > below and left > use:
         score_matrix[row][col] = left
-        pairs[row][col] = PTR_LEFT
+        paths[row][col] = PTR_LEFT
       else:
         score_matrix[row][col] = below
-        pairs[row][col] = PTR_BELOW
+        paths[row][col] = PTR_BELOW
 
   if debug:
     PrintScores(score_matrix)
-    PrintPaths(pairs)
-  return score_matrix[0][N-1], pairs
+    PrintPaths(paths)
+  return score_matrix[0][N-1], Traceback(MakeSeq(RNA), paths)
 
 
-# TODO: fix for GACUC. Broken because condition that terminates while loop is faulty
 def Traceback(RNA, path):
   if len(RNA) == 1:
     return [(RNA[0], (None, None))]
