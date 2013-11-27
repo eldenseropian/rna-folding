@@ -6,6 +6,12 @@ from nussinov import *
 
 class NussinovTests(unittest.TestCase):
 
+  def testSingleNucleotide(self):
+    self.Test('A', 0, [(('A', 0), (None, None))])
+
+  def testNoMatching(self):
+    self.Test('AG', 0, [(('A', 0), (None, None)), (('G', 1), (None, None))])
+
   def testPerfectMatchingSmall(self):
     self.Test('GAUC', 2, [(('G', 0), ('C', 3)), (('A', 1), ('U', 2))])
 
@@ -15,12 +21,33 @@ class NussinovTests(unittest.TestCase):
         (('C', 3), ('G', 10)), (('G', 4), ('U', 9)),
         (('G', 5), ('C', 8)), (('A', 6), ('U', 7))])
 
-  def testImperfectMatchingSmall(self):
+  def testImperfectMatchingCenterSmall(self):
     self.Test('GACUC', 2, [(('G', 0), ('C', 4)), (('A', 1), ('U', 3)),
         (('C', 2), (None, None))])
 
-  def Test(self, seq, expected_score, expected_pairs):
-    (actual_score, paths) = FoldAndScore(seq)
+  def testImperfectMatchingEndSmall(self):
+    self.Test('GAUCA', 2, [(('G', 0), ('C', 3)), (('A', 1), ('U', 2)),
+        (('A', 4), (None, None))])
+
+  def testLoop(self):
+    self.Test('GGGGAAAACCCC', 4,
+        [(('G', 0), ('C', 11)), (('G', 1), ('C', 10)), (('G', 2), ('C', 9)),
+         (('G', 3), ('C', 8)), (('A', 4), (None, None)),
+         (('A', 5), (None, None)), (('A', 6), (None, None)),
+         (('A', 7), (None, None))])
+
+  def testBulge(self):
+    self.Test('AAACCCAACCCUUCCCCUUU', 5,
+        [(('A', 0), ('U', 19)), (('A', 1), ('U', 18)), (('A', 2), ('U', 17)),
+         (('C', 3), (None, None)), (('C', 4), (None, None)),
+         (('C', 5), (None, None)), (('C', 13), (None, None)),
+         (('C', 14), (None, None)), (('C', 15), (None, None)),
+         (('C', 16), (None, None)), (('C', 8), (None, None)),
+         (('C', 9), (None, None)), (('C', 10), (None, None)),
+         (('A', 6), ('U', 12)), (('A', 7), ('U', 11))])
+
+  def Test(self, seq, expected_score, expected_pairs, debug=False):
+    (actual_score, paths) = FoldAndScore(seq, debug=debug)
     self.assertEqual(expected_score, actual_score)
     actual_pairs = Traceback(MakeSeq(seq), paths)
     try:

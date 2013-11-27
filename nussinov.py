@@ -5,7 +5,7 @@ MATCHES = (('A', 'U'), ('U', 'A'),\
            ('G', 'C'), ('C', 'G'))
 PTR_NONE, PTR_LEFT, PTR_BELOW, PTR_USE = 0, 1, 2, 3
 
-def FoldAndScore(RNA):
+def FoldAndScore(RNA, debug=False):
   N = len(RNA)
   score_matrix = [[0 for _ in range(N)] for _ in range(N)]
   pairs = [[PTR_NONE for _ in range(N)] for _ in range(N)]
@@ -18,29 +18,32 @@ def FoldAndScore(RNA):
       use = score_matrix[row + 1][col - 1]
       if (RNA[row][0], RNA[col][0]) in MATCHES:
         use += 1
-      if left > below and left > use:
-        score_matrix[row][col] = left
-        pairs[row][col] = PTR_LEFT
-      elif below > left and below > use:
-        score_matrix[row][col] = below
-        pairs[row][col] = PTR_BELOW
-      else:
+      if use > below and use > left:
         score_matrix[row][col] = use
         pairs[row][col] = PTR_USE
+      elif left > below and left > use:
+        score_matrix[row][col] = left
+        pairs[row][col] = PTR_LEFT
+      else:
+        score_matrix[row][col] = below
+        pairs[row][col] = PTR_BELOW
 
-  PrintScores(score_matrix)
-  PrintPaths(pairs)
-
+  if debug:
+    PrintScores(score_matrix)
+    PrintPaths(pairs)
   return score_matrix[0][N-1], pairs
 
 
 # TODO: fix for GACUC. Broken because condition that terminates while loop is faulty
 def Traceback(RNA, path):
+  if len(RNA) == 1:
+    return [(RNA[0], (None, None))]
+
   pairs = []
   row = 0
   col = len(RNA) - 1
 
-  while path[row][col] != PTR_NONE:
+  while col >= row and row < len(RNA) and col > 0:
     if path[row][col] == PTR_USE:
       pairs.append((RNA[row], RNA[col]))
       row += 1
@@ -51,6 +54,9 @@ def Traceback(RNA, path):
     elif path[row][col] == PTR_BELOW:
       pairs.append((RNA[row], (None, None)))
       row += 1
+    elif row == col:
+      pairs.append((RNA[row], (None, None)))
+      break
     else:
       raise ValueError
   return pairs
