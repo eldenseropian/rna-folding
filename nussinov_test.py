@@ -29,6 +29,10 @@ class NussinovTests(unittest.TestCase):
     self.Test('GAUCA', 2, [(('G', 0), ('C', 3)), (('A', 1), ('U', 2)),
         (('A', 4), (None, None))])
 
+  def testImperfectMatchingBugFix(self):
+    self.Test('CUAC', 1, [(('C', 0), (None, None)), (('U', 1), ('A', 2)),
+        (('C', 3), (None, None))])
+
   def testLoop(self):
     self.Test('GGGGAAAACCCC', 4,
         [(('G', 0), ('C', 11)), (('G', 1), ('C', 10)), (('G', 2), ('C', 9)),
@@ -47,9 +51,13 @@ class NussinovTests(unittest.TestCase):
          (('A', 6), ('U', 12)), (('A', 7), ('U', 11))])
 
   def Test(self, seq, expected_score, expected_pairs, debug=False):
+    if debug:
+      print
     (actual_score, actual_pairs) = FoldAndScore(seq, debug=debug)
     self.assertEqual(expected_score, actual_score)
     try:
+      if debug:
+        print actual_pairs
       self.assertEqual(self.Settify(expected_pairs),
           self.Settify(actual_pairs))
     except AssertionError as e:
