@@ -1,6 +1,6 @@
 __author__ = "Lily Seropian"
 
-import length_data
+import threading
 import nussinov
 
 """
@@ -52,6 +52,18 @@ def _Partition(seq, length):
     return partitions
 
 """
+Used to perform the evaluation of the partitions simultaneously
+"""
+class RunNussinov(threading.Thread):
+  def __init__(self, partition, return_results_into):
+    threading.Thread.__init__(self)
+    self.partition = partition
+    self.return_results_into = return_results_into
+
+  def run(self):
+    self.return_results_into.append(nussinov.FoldAndScore(self.partition))
+
+"""
 Takes in an RNA sequence and computes its best folding using partitions of
 specified length.
 """
@@ -62,11 +74,22 @@ def Fold(seq, partition_length):
     best_score = -1
     best_pairing = None
     parts = _Partition(RNA, partition_length)
+
+    threads = []
+    results = []
     for part in parts:
-      score, pairing = nussinov.FoldAndScore(part)
+      thread = RunNussinov(part, results)
+      thread.start()
+      threads.append(thread)
+    for thread in threads:
+      thread.join()
+
+    for result in results:
+      score, pairing = result
       if score > best_score:
         best_score = score
         best_pairing = pairing
+
     folding.extend(best_pairing)
     used_bases = set([])
     for pair in best_pairing:
