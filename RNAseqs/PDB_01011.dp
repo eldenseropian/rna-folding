@@ -1,0 +1,10 @@
+# File PDB_01011.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2DU5, number of molecules: 1
+# The secondary structure annotation was obtained with RNAview
+
+GCCAGGGUGGCAGAGGGGCUUUGCGGCGGACUUCAGAUCCGCUUUACCCC
+GGUUCGAAUCCGGGCCCUGGC
+(((((((..(((.........))).(((((.......))))).....(((
+((.......))))))))))))
+

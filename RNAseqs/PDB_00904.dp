@@ -1,0 +1,14 @@
+# File PDB_00904.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1ZO3, number of molecules: 2
+# The secondary structure annotation was obtained with RNAview
+
+GCGGAUUUAGCUCAGUUGGGAGAGCGCCAGACUGAAGAUCUGGAGGUCCU
+GUGUUCGAUCCACAGAAUUCGCACCAGCGGAUUUAGCUCAGUUGGGAGAG
+CGCCAGACUGAAGAUCUGGAGGUCCUGUGUUCGAUCCACAGAAUUCGCAC
+CA
+(((((((..((((........))))((((((.......))))))....((
+(((.......))))))))))))....(((((((..((((........)))
+)((((((.......))))))....(((((.......))))))))))))..
+..
+

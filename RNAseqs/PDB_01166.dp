@@ -1,0 +1,32 @@
+# File PDB_01166.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2NZ4, number of molecules: 8
+# The secondary structure annotation was obtained with RNAview
+
+AaGCGCCGAACUgGCACCAUUGCACCGGUGCCAGUUGACGAGGUGGGGUU
+UAUCGAGAUUUCGGCGGAUGACUCCCGGUUGUUCAUCACAACCGAAGCUU
+UACUUAAAUCAUUAAGGUGACUUAGUGGACAAAGGUGAAAGGUGAUGAAa
+GCGCCAGAACUgGCACCAUUGCACUCCGGUGCCAGUUGACGAGGUGGGGU
+UUAUCGAGAUUCGGCGGAUGACUCCCGGUUGUUCAUCACAACCGAAGCUU
+UUACUUAAAUCAUUAAGGUGACUUAGUGGACAAAGGUGAAAGUGUGAUGA
+AaGCGCCAGAACUgGCACCAUUGCACUCCGGUGCCAGUUGACGAGGUGGG
+GUUUAUCGAGAUUUCGGCGGAUGACUCCCGGUUGUUCAUCACAACCGAAG
+CUUUUACUUAAAUCAUUAAGGUGACUUAGUGGACAAAGGUGAAAGUGUGA
+UGAAaGCGCCGAACUgGCACCAUUGCACCCGGUGCCAGUUGACGAGGUGG
+GGUUUAUCGAGAUUCGGCGGAUGACUCCCGGUUGUUCAUCACAACCGCAA
+GCUUUUACUUAAAUCAUUAAGGUGACUUAGUGGACAAAGGUGAAAGUGUG
+AUGA
+...(((((((((((((((........))))))))))..(((...[[[[[[
+..)))......)))))...]]]]]]{{{{...((((....}}}}...((.
+((((..(((((((((((..)))))))))))...))))..))...))))..
+.((((..((((((((((..........))))))))))..(((...<<<<<
+<..)))......))))...>>>>>>((((((.AA.AAA))))))..((((
+(((((..(((((((((((..)))))))))))...))))))))).aaa.aa
+...((((..((((((((((..........))))))))))..(((...BBB
+BBB..))).......))))...bbbbbbCCCCCC.((((((cccccc..(
+((((((((..(((((((((((..)))))))))))...))))))))).)))
+)))...(((((((((((((((.........))))))))))..(((...DD
+DDDD..))).....)))))...dddddd((((((..EEEEE))))))...
+(((.(((((..(((((((((((..)))))))))))...))))).))).ee
+eee.
+

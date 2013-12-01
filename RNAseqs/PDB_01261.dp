@@ -1,0 +1,46 @@
+# File PDB_01261.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2RKJ, number of molecules: 8
+# The secondary structure annotation was obtained with RNAview
+
+GAGCCUUUAUACAGUAAUGUAUAUCGAAAAAUCCUCUAAUUCAGGGAACA
+CCUAAACAUGUAGGCAAUCCUGAGCUAAGCUCUGCGGAAACGCAGAGAAA
+GUGCAACGACUAUUCCGAUAGGAAGUAGGGUCAAGUGACUCGAAAUGGGG
+AUUACCCUUCUAGGGUAGUGAUAUAGUCUGAACAUAUAUGGAAACAUAUA
+GAAGGAUAGGAGUAACGAACCUAUCCGUAACAUAAUUGGCUUGAGCCUUU
+AUACAGUAAUGUAUAUCGAAAAAUCCUCUAAUUCAGGGAACACCUAAACA
+UGUAGGCAAUCCUGAGCUAAGCUCUGCGGAAACGCAGAGAAAGUGCAACG
+ACUAUUCCGAUAGGAAGUAGGGUCAAGUGACUCGAAAUGGGGAUUACCCU
+UCUAGGGUAGUGAUAUAGUCUGAACAUAUAUGGAAACAUAUAGAAGGAUA
+GGAGUAACGAACCUAUCCGUAACAUAAUUGGCUUGAGCCUUUAUACAGUA
+AUGUAUAUCGAAAAAUCCUCUAAUUCAGGGAACACCUAAACAUGUAGGCA
+AUCCUGAGCUAAGCUCUGCGGAAACGCAGAGAAAGUGCAACGACUAUUCC
+GAUAGGAAGUAGGGUCAAGUGACUCGAAAUGGGGAUUACCCUUCUAGGGU
+AGUGAUAUAGUCUGAACAUAUAUGGAAACAUAUAGAAGGAUAGGAGUAAC
+GAACCUAUCCGUAACAUAAUUGGCUUGAGCCUUUAUACAGUAAUGUAUAU
+CGAAAAAUCCUCUAAUUCAGGGAACACCUAAACAUGUAGGCAAUCCUGAG
+CUAAGCUCUGCGGAAACGCAGAGAAAGUGCAACGACUAUUCCGAUAGGAA
+GUAGGGUCAAGUGACUCGAAAUGGGGAUUACCCUUCUAGGGUAGUGAUAU
+AGUCUGAACAUAUAUGGAAACAUAUAGAAGGAUAGGAGUAACGAACCUAU
+CCGUAACAUAAUUGGCUU
+((((((((((((((..))))))))))....((((((....(((((((((.
+(((...(()).))))))))))))(((.(((((((((....))))))))))
+)).....[[[[.((((..{{))))..((((((....))))))....))))
+))((((((...)))))).......]]]]..((..(((((((..)))))))
+...((((((((.......)))))))).........)).))))((((((((
+((((((..))))))))))....((((((....(((((((((.(((...((
+)).))))))))))))(((.(((((((((....)))))))))))).....<
+<<<.((((..}}))))..((((((....))))))....))))))((((((
+...)))))).......>>>>..((..(((((((..)))))))...(((((
+(((.......)))))))).........)).))))((((((((((((((..
+))))))))))....((((((....(((((((((.(((...(()).)))))
+)))))))(((.(((((((((....)))))))))))).....AAAA.((((
+(..)))))..((((((....))))))....))))))((((((...)))))
+).......aaaa..((..(((((((..)))))))...((((((((.....
+..)))))))).........)).))))((((((((((((((..))))))))
+))....((((((....(((((((((.(((...(()).))))))))))))(
+((.(((((((((....)))))))))))).....BBBB.(((((..)))))
+..((((((....))))))....))))))((((((...)))))).......
+bbbb..((..(((((((..)))))))...((((((((.......))))))
+)).........)).))))
+

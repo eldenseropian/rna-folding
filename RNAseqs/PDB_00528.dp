@@ -1,0 +1,20 @@
+# File PDB_00528.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1KOG, number of molecules: 9
+# The secondary structure annotation was obtained with RNAview
+
+GGCGUAUGUGAUCUUUCGUGUGGGUCACCACUGCGCCGGCGUAUGUGAUC
+UUUCGUGUGGGUCACCACUGCGCCGGCGUAUGUGAUCUUUCGUGUGGGUC
+ACCACUGCGCCGGCGUAUGUGAUCUUUCGUGUGGGUCACCACUGCGCCGG
+CGUAUGUGAUCUUUCGUGUGGGUCACCACUGCGCCGGCGUAUGUGAUCUU
+UCGUGUGGGUCACCACUGCGCCGGCGUAUGUGAUCUUUCGUGUGGGUCAC
+CACUGCGCCGGCGUAUGUGAUCUUUCGUGUGGGUCACCACUGCGCCaaaa
+aaaa
+((((((.(((((((.......)))))))...))))))((((((.((((((
+(.......)))))))...)))))).(((((.(((((((.......)))))
+))...))))).((((((.(((((((.......)))))))...))))))((
+((((.(((((((.......)))))))...))))))((((((.(((((((.
+......)))))))...))))))((((((.(((((((.......)))))))
+...))))))((((((.(((((((.......)))))))...))))))....
+....
+

@@ -1,0 +1,24 @@
+# File PDB_01144.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2J37, number of molecules: 2
+# The secondary structure annotation was obtained with RNAview
+
+GACACUAAGUUCGGCAUCAAUAUGGUGACCUCCCGGGAGCGGGGGACCAC
+CAGGUUGCCUAAGGAGGGGUGAACCGGCCCAGGUCGGAAACGGAGCAGGU
+CAAAACUCCCGUGCUGAUCAGUAGUGUCCUGCAAAGUACCCUCAGAAGGG
+AGGCGAAAUAGAGCACAGCGAUAGUCGGGUGAGAACCCCGACGGCCUAAU
+GGAUAAGGGUUCCUCAGCACUGCUGAUCAGCUGAGGGUUAGCCGGUCCUA
+AGUCAUACCGCAACUCGACUAUGACGAAAUGGGAAACGGGUUAAUAUUCC
+CGUGCCACGGGGUCGAUCACGCUGGGCAUCGCCCAGUCGAACCGUCCAAC
+UCCGUGGAAGCCGUAAUGGCAGGAAGCGGACGAACGGCGGCAUAGGGAAA
+CGUGAUUC
+((((((((((((((((((((((.((((((((((((....)))))))))))
+).)))))........((((((....(((((.(((((....))))).))))
+)..)))))).)))))))))).)))))))..........(((((...))))
+).....................(((((((.......))))))).......
+...........((((((...((.....)).))))))....((...(((..
+((((((((((.....)).))))))))....)))..(((((........))
+)))))........(((((((((((((.....))))))(((((((((..((
+((((((((.(((.....)))..))))))))))...))))))).))((..)
+))))))))
+

@@ -1,0 +1,18 @@
+# File PDB_01129.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2IL9, number of molecules: 2
+# The secondary structure annotation was obtained with RNAview
+
+CUGACUAUGUGAUCUUAUUAAAAUUAGGUUAAACGAGGUUAAAAAUAGUU
+UUAAUAUUGCUAUAGUAGAGGUCUUGCGAAAGCUUACCACACAAGAUGGA
+CCGGAGCGAAAGCUCCAAUAUCUAGUGUACCCUCGCUGACUAUGUGAUCU
+UAUUAAAAUUAGGUUAAAUCGAGGUUAAAAAUAGUUUUAAUAUUGCUAAG
+AGGUCUUGCGAAAGCUUACCACACAAGAUGGACCGGAGCGAAAGCUCCAA
+UAUCUAGUGUACCCUCG
+..((.((......(((((....((............AAAA.......)).
+...))).))....)).)).[[.[[..((..))......(((..((((]].
+]]....((..)).......))))..))){{{.{{{((..........(((
+((.(((((((((.......}}}.}}}....))))))))).)))))....)
+)(((((((((..)))).........<<<<)))))((((((..))))))..
+.>>>>.....aaaa...
+

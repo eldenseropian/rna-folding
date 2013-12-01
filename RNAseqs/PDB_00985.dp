@@ -1,0 +1,16 @@
+# File PDB_00985.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2CZJ, number of molecules: 4
+# The secondary structure annotation was obtained with RNAview
+
+GGGGGUGAAACGGUCUCGACAGGGGUUCGCCUUUGGACGUGGGuPCGACU
+CCCACCACCUCCGGGGGUGAAACGGUCUCGACAGGGGUUCGCCUUUGGAC
+GUGGGuPCGACUCCCACCACCUCCGGGGGUGAAACGGUCUCGACAGGGGU
+UCGCCUUUGGACGUGGGuPCGACUCCCACCACCUCCGGGGGUGAAACGGU
+CUCGACAGGGGUUCGCCUUUGGACGUGGGuPCGACUCCCACCACCUCC
+(((((((...........(((((.((..)).))))).....((.......
+))...)))))))(((((.............(((((((....)))))))..
+((((.........))))..)))))(((((((...........(((((.((
+..)).))))).....((.......))...)))))))(((((.........
+....(((((((....)))))))..((((.........))))..)))))
+

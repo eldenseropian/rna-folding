@@ -1,0 +1,16 @@
+# File PDB_00739.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1TTT, number of molecules: 3
+# The secondary structure annotation was obtained with RNAview
+
+GCGGAUUUAgCUCAGuuGGGAGAGCgCCAGAcUgAAgAPcUGGAGgUCcU
+GUGuPCGaUCCACAGAAUUCGCACCAGCGGAUUUAgCUCAGuuGGGAGAG
+CgCCAGAcUgAAgAPcUGGAGgUCcUGUGuPCGaUCCACAGAAUUCGCAC
+CAGCGGAUUUAgCUCAGuuGGGAGAGCgCCAGAcUgAAgAPcUGGAGgUC
+cUGUGuPCGaUCCACAGAAUUCGCACCA
+(((((((..((((........))))(((((((.....)))))))....((
+(((.......))))))))))))....(((((((...(((........)))
+.((((((.......))))))....(((((.......))))))))))))..
+..(((((((..((((........))))(((((((.....)))))))....
+(((((.......))))))))))))....
+

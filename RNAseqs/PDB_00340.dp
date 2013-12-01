@@ -1,0 +1,12 @@
+# File PDB_00340.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1DDY, number of molecules: 4
+# The secondary structure annotation was obtained with RNAview
+
+GGAACCGGUGCGCAUAACCACCUCAGUGCGAGCAAGGAACCGGUGCGCAU
+AACCACCUCAGUGCGAGCAAGGAACCGGUGCGCAUAACCACCUCAGUGCG
+AGCAAGGAACCGGUGCGCAUAACCACCUCAGUGCGAGCAA
+......(((..[[......))).........]]........(((..{{..
+....))).........}}........(((..<<......)))........
+.>>........(((..AA......))).........aa..
+

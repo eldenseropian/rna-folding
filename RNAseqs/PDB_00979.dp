@@ -1,0 +1,14 @@
+# File PDB_00979.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2CKY, number of molecules: 2
+# The secondary structure annotation was obtained with RNAview
+
+GGGACCAGGGGUGCUUGUUCACAGGCUGAGAAAGUCCCUUUGAACCUGAA
+CAGGGUAAUGCCUGCGCAGGGAGUGUCGGGACCAGGGGUGCUUGUUCACA
+GGCUGAGAAAGUCCCUUUGAACCUGAACAGGGUAAUGCCUGCGCAGGGAG
+UGUC
+..(((.(((((((((((....)))))......)).))))....((((((.
+((((......)))))).))))...)))..(((.(((((((((((....))
+)))......)).))))....((((((.((((......)))))).))))..
+.)))
+

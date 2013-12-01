@@ -1,0 +1,12 @@
+# File PDB_01187.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 2OIU, number of molecules: 2
+# The secondary structure annotation was obtained with RNAview
+
+GGACCUCGGCGAAAGCCGUUCGACCAGCGAAAGCUCUUAGACAGGAGGUU
+AGGUGCUCCGAAAGGAGCACUGGACCUCGGCGAAAGCCGUUCGACCAGCG
+AAAGCUCUUAGACAGGAGGUUAGGUGCUCCGAAAGGAGCACU
+(((((((((((..))))..(((..(((((..)))))..)))...))))))
+)((((((((....)))))))).((((((((((..))))..(((..((((.
+...))))..)))...))))))..((((((((..)))))))).
+

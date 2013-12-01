@@ -1,0 +1,12 @@
+# File PDB_00039.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1DUQ, number of molecules: 8
+# The secondary structure annotation was obtained with RNAview
+
+GCUGGGCGCAGGCCUGACGGUACAGCGCUGGGCGCAGGCCUGACGGUACA
+GCGCUGGGCGCAGGCCUGACGGUACAGCGCUGGGCGCAGGCCUGACGGUA
+CAGC
+(((((((((((()))).))).))))).(((.((((((()))).)))..))
+).(((((((((((()))).))).)))))((((.((((((()))).)))..
+))))
+

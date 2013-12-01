@@ -1,0 +1,14 @@
+# File PDB_00864.dp
+# RNA SSTRAND database
+# External source: RCSB Protein Data Bank 1YSH, number of molecules: 3
+# The secondary structure annotation was obtained with RNAview
+
+GAUGAAGCGUGCCGAAAGGCACGUGGAAAACUCCGUGGAAGCCGUAAUGG
+CAGGAAGCGGAUAGACGGUGGGAGAGGGUGGUGGAAUUCCCGGAGUAGCG
+GUGAAAUGCGCAGAUACCGGGAGGAACGCCGAUGGCGAAGGCAGCCACCU
+GGUCCACCCGUG
+..((((((((((((..))))))))))))...((((((((.(((.....))
+)..))))))))..(((((((((((.(((((((((((((((((((((((((
+(....))))...))))))))))))))).......(((..))).)))))))
+))))))).))))
+
