@@ -1,9 +1,9 @@
 bDict = {'A':0, 'T':1, 'C':2, 'G':3}
 
-bondScore = [[0, 0, 0, 2],
-             [0, 0, 2, 1],
-             [0, 2, 0, 0],
-             [2, 1, 0, 0]]
+bondScore = [[0, 0, 0, 1],
+             [0, 0, 1, 1],
+             [0, 1, 0, 0],
+             [1, 1, 0, 0]]
 
 def pairingScorer(partition):
     firstTuple, secondTuple, seq = partition[0][0], partition[0][1], partition[1]
