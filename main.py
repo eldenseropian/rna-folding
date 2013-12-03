@@ -3,7 +3,6 @@ import fold
 import parse
 import matplotlib
 
-
 def mainPartitioned(partition_length):
     seqList = parse.parse('RNAseqs', 20)
     folded = []
@@ -17,7 +16,7 @@ def mainNoPartition():
     scoredFolded = []
     for RNA in seqList:
         if len(RNA) != 0:
-          scoredFolded += [nussinov.FoldAndScore(RNA)] #without partition
+          scoredFolded += [nussinov.FoldAndScore(nussinov.MakeSeq(RNA))] #without partition
     return scoredFolded
 
 def scorePartitioned(folded):
@@ -31,4 +30,4 @@ if __name__ == '__main__':
     t = timeit.Timer(stmt = "mainNoPartition()", setup = "from main import mainNoPartition")
     u = timeit.Timer(stmt = "mainPartitioned(20)", setup = "from main import mainPartitioned")
     print 'Without partioning:', t.timeit(3)
-    print 'Partitioned:', u.timeit(3)
+    print 'With partitioning:', u.timeit(3)
