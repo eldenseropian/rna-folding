@@ -1,6 +1,5 @@
 __author__ = "Lily Seropian"
 
-from multiprocessing import Pool
 import nussinov
 
 """
@@ -64,10 +63,8 @@ def Fold(seq, partition_length):
     best_pairing = None
     parts = _Partition(RNA, partition_length)
 
-    pool = Pool(processes=4)
-    results = pool.map(nussinov.FoldAndScore, parts)
-    for result in results:
-      score, pairing = result
+    for part in parts:
+      score, pairing = nussinov.FoldAndScore(part)
       if score > best_score:
         best_score = score
         best_pairing = pairing
