@@ -1,8 +1,8 @@
 __author__ = "Lily Seropian"
 
-BASES = ('A', 'C', 'U', 'G')
-MATCHES = (('A', 'U'), ('U', 'A'),\
-           ('G', 'U'), ('U', 'G'),\
+BASES = ('A', 'C', 'U', 'G', 'T')
+MATCHES = (('A', 'U'), ('U', 'A'), ('A', 'T'), ('T', 'A'),\
+           ('G', 'U'), ('U', 'G'), ('G', 'T'), ('T', 'G'),\
            ('G', 'C'), ('C', 'G'))
 
 # Directions refer to the dynamic programming matrix used by Nussinov's
