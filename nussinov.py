@@ -1,5 +1,6 @@
 __author__ = "Lily Seropian"
 
+BASES = ('A', 'C', 'U', 'G')
 MATCHES = (('A', 'U'), ('U', 'A'),\
            ('G', 'U'), ('U', 'G'),\
            ('G', 'C'), ('C', 'G'))
@@ -34,9 +35,9 @@ corresponding tuple is (None, None). An example folding for 'CUAC':
     [(('C', 0), (None, None)), (('U', 1), ('A', 2)), (('C', 3), (None, None))]
 """
 def FoldAndScore(RNA, debug=False):
+  if len(RNA) == 0 or type(RNA) != list or type(RNA[0]) != tuple:
+    raise ValueError('Invalid input to FoldAndScore: ' + str(RNA) + '.')
   N = len(RNA)
-  if N == 0:
-    raise ValueError('FoldAndScore called with a sequence of length 0')
 
   score_matrix = [[0 for _ in range(N)] for _ in range(N)]
   paths = [[PTR_NONE for _ in range(N)] for _ in range(N)]
@@ -106,6 +107,11 @@ Convert an RNA sequence represented as a string into the format described
 in the FoldAndScore spec.
 """
 def MakeSeq(seq):
+  if len(seq) == 0:
+    raise ValueError('Sequence of length 0')
+  for i in range(len(seq)):
+    if seq[i] not in BASES:
+      raise ValueError('Unknown character ' + str(seq[i]) + ' found in sequence.') 
   return [(seq[i], i) for i in range(len(seq))]
 
 """ Print the score matrix. Used for debugging. """
