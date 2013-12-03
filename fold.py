@@ -48,6 +48,7 @@ specified length.
 def Fold(seq, partition_length):
   RNA = nussinov.MakeSeq(seq)
   folding = []
+  total_score = 0
   while len(RNA) > partition_length:
     best_score = -1
     best_pairing = None
@@ -59,6 +60,7 @@ def Fold(seq, partition_length):
         best_score = score
         best_pairing = pairing
 
+    total_score += best_score
     folding.extend(best_pairing)
     for pair in best_pairing:
       if pair[0] != (None, None):
@@ -69,7 +71,7 @@ def Fold(seq, partition_length):
   # Fold the last part of the sequence
   score, pairing = nussinov.FoldAndScore(RNA)
   folding.extend(pairing)
-  return folding
+  return total_score, folding
 
 if __name__ == '__main__':
   x = Fold('AGTCGGCTTGA', 5)
