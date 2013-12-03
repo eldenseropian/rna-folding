@@ -5,14 +5,14 @@ import matplotlib
 
 
 def mainPartitioned(partition_length):
-    seqList = parse.parse(r'C:\Users\LLP-student\Documents\GitHub\rna-folding\RNAseqs', 20)
+    seqList = parse.parse('RNAseqs', 20)
     folded = []
     for RNA in seqList:
         folded += [fold.Fold(RNA, partition_length)] #with partition, run with different lengths
     return folded
 
 def mainNoPartition():
-    seqList = parse.parse(r'C:\Users\LLP-student\Documents\GitHub\rna-folding\RNAseqs', 20)
+    seqList = parse.parse('RNAseqs', 20)
     scoredFolded = []
     for RNA in seqList:
         scoredFolded += [nussinov.FoldAndScore(RNA)] #without partition
