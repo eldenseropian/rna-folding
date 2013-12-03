@@ -1,6 +1,6 @@
 __author__ = "Lily Seropian"
 
-import threading
+from multiprocessing import Pool
 import nussinov
 
 """
@@ -51,17 +51,6 @@ def _Partition(seq, length):
           partitions[i + num_even_parts - 1].append(seq[j])
     return partitions
 
-"""
-Used to perform the evaluation of the partitions simultaneously
-"""
-class RunNussinov(threading.Thread):
-  def __init__(self, partition, return_results_into):
-    threading.Thread.__init__(self)
-    self.partition = partition
-    self.return_results_into = return_results_into
-
-  def run(self):
-    self.return_results_into.append(nussinov.FoldAndScore(self.partition))
 
 """
 Takes in an RNA sequence and computes its best folding using partitions of
@@ -75,15 +64,8 @@ def Fold(seq, partition_length):
     best_pairing = None
     parts = _Partition(RNA, partition_length)
 
-    threads = []
-    results = []
-    for part in parts:
-      thread = RunNussinov(part, results)
-      thread.start()
-      threads.append(thread)
-    for thread in threads:
-      thread.join()
-
+    pool = Pool(processes=4)
+    results = pool.map(nussinov.FoldAndScore, parts)
     for result in results:
       score, pairing = result
       if score > best_score:
