@@ -60,13 +60,10 @@ def Fold(seq, partition_length):
         best_pairing = pairing
 
     folding.extend(best_pairing)
-    used_bases = set([])
     for pair in best_pairing:
       if pair[0] != (None, None):
-        used_bases.add(pair[0])
         RNA.remove(pair[0])
       if pair[1] != (None, None):
-        used_bases.add(pair[1])
         RNA.remove(pair[1])
 
   # Fold the last part of the sequence
