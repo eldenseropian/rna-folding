@@ -4,7 +4,7 @@ import parse
 import matplotlib
 
 def mainPartitioned(partition_length):
-    seqList = parse.parse('RNAseqs', 20)
+    seqList = parse.parse('RNAseqs', 1)
     folded = []
     for RNA in seqList:
         if len(RNA) != 0:
@@ -12,7 +12,7 @@ def mainPartitioned(partition_length):
     return folded
 
 def mainNoPartition():
-    seqList = parse.parse('RNAseqs', 20)
+    seqList = parse.parse('RNAseqs', 1)
     scoredFolded = []
     for RNA in seqList:
         if len(RNA) != 0:
@@ -28,6 +28,6 @@ def scorePartitioned(folded):
 if __name__ == '__main__':
     import timeit
     t = timeit.Timer(stmt = "mainNoPartition()", setup = "from main import mainNoPartition")
-    u = timeit.Timer(stmt = "mainPartitioned(20)", setup = "from main import mainPartitioned")
+    u = timeit.Timer(stmt = "mainPartitioned(10)", setup = "from main import mainPartitioned")
     print 'Without partioning:', t.timeit(3)
     print 'With partitioning:', u.timeit(3)

@@ -1,7 +1,7 @@
 import os
 
 bases = {'g':1, 'a':1, 't':1, 'c':1, 'G':1, 'A':1, 'T':1, 'C':1}
-lowercase = {'g':1, 'a':1, 't':1, 'c':1}
+uppercase = {'G':1, 'A':1, 'T':1, 'C':1}
 
 """
 Takes in a path to a directory, then opens each file in the
@@ -22,13 +22,17 @@ def parse(path, numRNA):
         h = open(theFile)
         k = 0
         seq = []
+        strSeq = ''
         for line in h:
             if line[0] in bases:
-                for letter in line:
-                    if letter in lowercase:
-                        seq += [letter.capitalize()]
-                    else:
-                        seq += [letter]
-            strSeq = ''.join(seq)
+                seq = [letter.capitalize() for letter in line if letter in bases]     
+            strLineSeq = ''.join(seq)
+            strSeq += strLineSeq
+            seq = []
+            strLineSeq = ''
+##        print strSeq
         seqList += [strSeq]
+    
     return seqList
+
+##parse('RNAseqs', 10)
