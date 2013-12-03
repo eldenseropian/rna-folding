@@ -35,6 +35,9 @@ corresponding tuple is (None, None). An example folding for 'CUAC':
 """
 def FoldAndScore(RNA, debug=False):
   N = len(RNA)
+  if N == 0:
+    raise ValueError('FoldAndScore called with a sequence of length 0')
+
   score_matrix = [[0 for _ in range(N)] for _ in range(N)]
   paths = [[PTR_NONE for _ in range(N)] for _ in range(N)]
 
@@ -62,6 +65,7 @@ def FoldAndScore(RNA, debug=False):
   if debug:
     _PrintScores(score_matrix)
     _PrintPaths(paths)
+
   return score_matrix[0][N-1], _Traceback(RNA, paths)
 
 """
