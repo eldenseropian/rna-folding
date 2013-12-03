@@ -5,7 +5,10 @@ bondScore = [[0, 0, 0, 1],
              [0, 1, 0, 0],
              [1, 1, 0, 0]]
 
-def score(partition):
+"""
+input in form of 
+"""
+def score(foldedRNA):
     firstTuple, secondTuple, seq = partition[0][0], partition[0][1], partition[1]
     score = 0
     secondHalf = xrange(secondTuple[0], secondTuple[1])
