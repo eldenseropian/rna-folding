@@ -28,27 +28,17 @@ def _Partition(seq, length):
   else:
     num_even_parts = N - length + 1
     num_odd_parts = 0
-    if length % 2 == 1:
+    is_odd = length % 2 == 1
+    if is_odd:
       # If there are an odd number of bps in the partition, the odd one
-      # can go in the first or second half, doubling the number of partitions.
-      # There is one overlap partition between the two placements.
+      # can go in the first or second half, doubling the number of
+      # partitions. There is one overlap partition between the two
+      # placements.
       num_odd_parts = num_even_parts - 1
-    partitions = [[seq[i] for i in range(length/2)]
-                  for _ in range(num_even_parts)] + \
-                 [[seq[i] for i in range(length/2 + 1)]
-                  for _ in range(num_odd_parts)]
-
-    # The odd base goes in the second half of the partition
-    for i in range(num_even_parts):
-      for j in range(i + length/2, i + length):
-        partitions[i].append(seq[j])
-
-    if length% 2 == 1:
-      # Add the odd base going in the first half
-      for i in range(1, num_even_parts):
-        for j in range(i + length/2 + 1, i + length):
-          partitions[i + num_even_parts - 1].append(seq[j])
-    return partitions
+    return [seq[:length/2] + seq[i + length/2 : i + length]
+            for i in range(num_even_parts)] + \
+           [seq[:length/2 + 1] + seq[i + length/2 + 2 : i + 1 + length]
+            for i in range(num_odd_parts)]
 
 
 """
@@ -72,9 +62,12 @@ def Fold(seq, partition_length):
     folding.extend(best_pairing)
     used_bases = set([])
     for pair in best_pairing:
-      used_bases.add(pair[0])
-      used_bases.add(pair[1])
-    RNA = [base for base in RNA if base not in used_bases]
+      if pair[0] != (None, None):
+        used_bases.add(pair[0])
+        RNA.remove(pair[0])
+      if pair[1] != (None, None):
+        used_bases.add(pair[1])
+        RNA.remove(pair[1])
 
   # Fold the last part of the sequence
   score, pairing = nussinov.FoldAndScore(RNA)
