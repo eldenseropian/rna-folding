@@ -1,6 +1,7 @@
 import nussinov
 import fold
 import parse
+import pairingScorer
 import matplotlib
 
 def mainPartitioned(numSeqs, partition_length):
@@ -20,14 +21,19 @@ def mainNoPartition(numSeqs):
     return scoredFolded
 
 def scorePartitioned(folded):
-    pass
+    return pairingScorer.score(folded)
 
 
 
 
 if __name__ == '__main__':
     import timeit
-    t = timeit.Timer(stmt = "mainNoPartition(20)", setup = "from main import mainNoPartition")
-    u = timeit.Timer(stmt = "mainPartitioned(20, 10)", setup = "from main import mainPartitioned")
-    print 'Without partioning:', t.timeit(3)
-    print 'With partitioning:', u.timeit(3)
+    sequences = 1
+    t = timeit.Timer(stmt = "mainNoPartition(" + str(sequences) + ")", setup = "from main import mainNoPartition")
+    u = timeit.Timer(stmt = "mainPartitioned(" + str(sequences) + ", " + str(100) + ")", setup = "from main import mainPartitioned")
+    tests = [timeit.Timer(stmt = "mainPartitioned(" + str(sequences) + ", " + str(p) + ")", setup = "from main import mainPartitioned") for p in range(150, 250, 20)]
+    trials = 5
+    print 'Without partioning:', min([t.timeit(1) for x in xrange(1)])
+##    print 'With threading:', min([u.timeit(1) for x in xrange(trials)])
+    for num, test in enumerate(tests):
+        print 'Partition size ' + str(150 + 20*num) + ': ', test.timeit(trials)
