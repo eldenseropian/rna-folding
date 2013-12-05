@@ -26,12 +26,13 @@ def parse(path, numRNA):
         for line in h:
             if line[0] in bases:
                 seq = [letter.capitalize() for letter in line if letter in bases]     
+            else:
+              continue
             strLineSeq = ''.join(seq)
             strSeq += strLineSeq
             seq = []
             strLineSeq = ''
-##        print strSeq
-        seqList += [strSeq]
+        seqList += [(strSeq, theFile)]
     
     return seqList
 
